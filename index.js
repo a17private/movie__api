@@ -1,7 +1,38 @@
-/*import express*/
+/*import express & morgan*/
 
-const express = require('express');
+const express = require('express'),
+  morgan = require('morgan');
+ 
 const app = express();
+
+app.use(morgan('common'));
+
+
+
+/*Morgan Middleware*/
+
+
+
+
+
+
+
+
+
+
+/*Error middleware function*/
+
+let myLogger = (err, req, res, next) => {
+  console.error(err.stack);
+  res.status(500).send('Something broke!');
+}
+
+app.use(myLogger);
+
+
+
+
+
 
 /*expose the endpoint*/
 
@@ -9,7 +40,10 @@ app.get('/movies', function (req, res) {
     res.send('')
   })
 
-/* Return json object */
+
+
+
+  /* Return json object */
   
   app.get('/', function (req, res) {
     res.send('')
@@ -17,11 +51,13 @@ app.get('/movies', function (req, res) {
 
   app.use( express.static('public'));
 
-  app.use((err, req, res, next) => {
-    // logic
-  });
 
-let top5movies = [
+
+
+
+  /*JSON object about Top 5 MOVIES*/
+
+  let top5movies = [
   {
     Movie: 'ESCAPE ROOM',
     Director: 'Adam Robitel'
