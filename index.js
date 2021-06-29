@@ -44,11 +44,67 @@ app.use(morgan('common'));
 
     /*Return default textual response*/
 
-    app.get('/', (req, res) => {
+    app.get('/movies', (req, res) => {
+  res.send('List Movies');
+});
+
+
+    /*Return default textual response*/
+
+app.get('/', (req, res) => {
   res.send('Welcome to my FILM list!');
 });
-  
 
+
+    /*Return default textual response*/
+
+app.get('/movies/[TITLE]', (req, res) => {
+  res.send('Movie Title');
+});
+
+    /*Return default textual response*/
+
+app.get('/movies/[GENRE]', (req, res) => {
+  res.send('Movie Genre');
+});
+
+    /*Return default textual response*/
+
+app.get('/directors/[DIRECTORS NAME]', (req, res) => {
+  res.send('Directors list');
+});
+
+    /*Return default textual response*/
+
+app.get('/users', (req, res) => {
+  res.send('Register user');
+});
+
+    /*Return default textual response*/
+
+app.get('/users/[USERNAME]', (req, res) => {
+  res.send('Update info');
+});
+
+    /*Return default textual response*/
+
+app.get('/users/[USERNAME]/favorites/[MOVIE]', (req, res) => {
+  res.send('Favourite movie');
+});
+
+    /*Return default textual response*/
+
+app.get('/users/[USERNAME]/favorites/[MOVIE]', (req, res) => {
+  res.send('Remove Movie from Favourites');
+});
+
+    /*Return default textual response*/
+
+app.get('/users/[USERNAME]', (req, res) => {
+  res.send('Deregister user');
+});
+
+  
 
    /*Express.static*/
 

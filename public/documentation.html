@@ -9,6 +9,81 @@
     <p>
         The following API contains a database of movies allowing users to access movie insights such as the Name, Genre, Directors and Cast.
     </p>
+    <div class="endpoint-table">
+      <h1>Description endpoints:</h1>
+      <table>
+          <thead>
+              <tr>
+                  <th>Request</th>
+                  <th>URL</th>
+                  <th>Method</th>
+                  <th>Body data</th>
+                  <th>Response</th>
+              </tr>
+          </thead>
+              <tr>
+                     <td>Welcome to my FILM list</td>
+                     <td>'/'</td>
+                     <td>GET</td>
+                     <td>Display Welcome Page to the user.</td>>
+                    
+              </tr>
+              <tr>
+                    <td>List Movies</td>>
+                    <td>/movies</td>
+                    <td>GET</td>
+                    <td>Return a list of ALL movies to the user</td>>
+              </tr>
+              <tr>
+                    <td>Movie Title</Title></td>>
+                    <td>/movies/[TITLE]</td>
+                    <td>GET</td>
+                    <td>Return data about a single movie by title to the user</td>>
+              </tr>
+              <tr>
+                    <td>Movie Genre</td>>
+                    <td>/movies/[GENRE]</td>
+                    <td>GET</td>
+                    <td>Return data about a genre</td>>
+              </tr>
+              <tr>
+                     <td>Directors list</td>>
+                     <td>/directors/[DIRECTORS NAME]</td>
+                     <td>GET</td>
+                     <td>Return data about a director by name</td>>
+              </tr>
+               <tr>
+                     <td>Register user</td>>
+                     <td>/users</td>
+                     <td>POST</td>
+                     <td>Allow new users to register</td>>
+              </tr>
+              <tr>
+                     <td>Update info</td>>
+                     <td>/users/[USERNAME]</td>
+                     <td>PUT</td>
+                     <td>Allow users to update their user info</td>>
+              </tr>
+              <tr>
+                     <td>Favourite movie</td>>
+                     <td>/users/[USERNAME]/favorites/[MOVIE]</td>
+                     <td>POST</td>
+                     <td>Allow users to add a movie to their list of favorites</td>>
+              </tr>
+              <tr>
+                     <td>Remove Movie from Favourites</td>>
+                     <td>/users/[USERNAME]/favorites/[MOVIE]</td>
+                     <td>DELETE</td>
+                     <td>Allow users to remove a movie from their list of favorites</td>>
+              </tr>
+              <tr>
+                     <td>Deregister user</td>>
+                     <td>/users/[USERNAME]</td>
+                     <td>DELETE</td>
+                     <td>Allow existing users to deregister</td>>
+              </tr>
+
+
 </body>
 <footer></footer>
 </html>
