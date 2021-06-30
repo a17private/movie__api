@@ -58,19 +58,19 @@ app.get('/', (req, res) => {
 
     /*Return default textual response*/
 
-app.get('/movies/[TITLE]', (req, res) => {
+app.get('/movies/title', (req, res) => {
   res.send('Movie Title');
 });
 
     /*Return default textual response*/
 
-app.get('/movies/[GENRE]', (req, res) => {
+app.get('/movies/genre', (req, res) => {
   res.send('Movie Genre');
 });
 
     /*Return default textual response*/
 
-app.get('/directors/[DIRECTORS NAME]', (req, res) => {
+app.get('/directors/directors name', (req, res) => {
   res.send('Directors list');
 });
 
@@ -82,25 +82,25 @@ app.get('/users', (req, res) => {
 
     /*Return default textual response*/
 
-app.get('/users/[USERNAME]', (req, res) => {
+app.get('/users/username', (req, res) => {
   res.send('Update info');
 });
 
     /*Return default textual response*/
 
-app.get('/users/[USERNAME]/favorites/[MOVIE]', (req, res) => {
+app.get('/users/username/favorites/movie', (req, res) => {
   res.send('Favourite movie');
 });
 
     /*Return default textual response*/
 
-app.get('/users/[USERNAME]/favorites/[MOVIE]', (req, res) => {
+app.get('/users/username/favorites/movie', (req, res) => {
   res.send('Remove Movie from Favourites');
 });
 
     /*Return default textual response*/
 
-app.get('/users/[USERNAME]', (req, res) => {
+app.get('/users/username', (req, res) => {
   res.send('Deregister user');
 });
 
