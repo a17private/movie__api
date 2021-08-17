@@ -63,7 +63,7 @@ app.get('/', (req, res) => {
 
 // Get all movies
 
-    app.get('/movies', (req, res) => {
+app.get('/movies', (req, res) => {
   Movies.find()
     .then((movies) => {
       res.status(201).json(movies);
