@@ -45,10 +45,9 @@ app.use(morgan('common'));
   
     /* Return json object */
 
-    app.get('/movies', function (req, res) { 
+    /*app.get('/movies', function (req, res) { 
       res.json(top5movies);
-    });
-
+    });*/
 
       /*Return default textual response*/
 
@@ -105,7 +104,7 @@ app.get('/', (req, res) => {
 
     /*Return default textual response*/
 
-app.get('/movies/Title', (req, res) => {
+app.get('/movies/:Title', (req, res) => {
   res.send('Movie Title');
 });
 
