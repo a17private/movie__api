@@ -75,11 +75,7 @@ app.get('/movies', (req, res) => {
 });
 
       
-  /*Return default textual response*/
 
- /*app.get('/movies', (req, res) => {
-  res.send('List Movies');
-});*/
 
 
   
