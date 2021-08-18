@@ -1,5 +1,5 @@
 const express = require('express'),
-morgan = require('morgan');
+const morgan = require('morgan');
 const mongoose = require('mongoose');
 const Models = require('./models.js');
 
