@@ -12,9 +12,8 @@ let movieSchema = mongoose.Schema({
       Bio: String,
       Birth: String,
       Death: String
-    },
-     Featured: Boolean
-  });
+    }
+   });
   
   let userSchema = mongoose.Schema({
     Username: {type: String, required: true},
