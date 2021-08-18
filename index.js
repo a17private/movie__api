@@ -49,12 +49,6 @@ app.use(morgan('common'));
       res.json(top5movies);
     });*/
 
-      /*Return default textual response*/
-
-app.get('/', (req, res) => {
-  res.send('Welcome to my FILM list!');
-});
-
     
 
 
@@ -98,13 +92,6 @@ app.get('/movies', (req, res) => {
   });
 
 
-    /*Return default textual response*/
-
-app.get('/movies/:Title', (req, res) => {
-  res.send('Movie Title');
-});
-
-
   
 
 
@@ -122,12 +109,6 @@ app.get('/movies/:Title', (req, res) => {
         res.status(500).send('Error: ' + err);
       });
   });
-
-    /*Return default textual response*/
-
-app.get('/movies/Genre', (req, res) => {
-  res.send('Movie Genre');
-});
 
 
 
@@ -148,13 +129,6 @@ app.get('/movies/:Director', (req, res) => {
       res.status(500).send('Error: ' + err);
     });
 });
-
- /*Return default textual response*/
-
-app.get('/movies/:Director', (req, res) => {
-  res.send('Directors list');
-});
-
 
 
 
@@ -184,14 +158,7 @@ app.post('/users', (req, res) => {
     res.status(500).send('Error: ' + error);
   });
 });
- 
-     /*Return default textual response*/
 
-app.post('/users', (req, res) => {
-  res.send('Register user');
-});
-
-    
 
 
 
@@ -223,16 +190,9 @@ app.put('/users/:username', (req, res) => {
   });
 });
 
-/*Return default textual response*/
-
-app.put('/users/:username', (req, res) => {
-  res.send('Update users info');
-});
-
-    
 
 
-
+  
 
 
 
@@ -253,17 +213,6 @@ app.get('/users/:movieid', (req, res) => {
       res.status(500).send('Error: ' + err);
     });
 });
-
-
-/*Return default textual response*/
-
-app.get('/users/:movieid', (req, res) => {
-  res.send('Favourite movie');
-});
-
-  
-
-
 
 
 
@@ -293,16 +242,6 @@ app.delete('/users/:movieid', (req, res) => {
       res.status(500).send('Error: ' + err);
     });
 });
-
-/*Return default textual response*/
-
-app.delete('/users/:movieid', (req, res) => {
-  res.send('Remove Movie from Favourites');
-});
-
-   
-
-
 
 
 
@@ -335,13 +274,7 @@ app.delete('/users/:username', (req, res) => {
     });
 });
 
-/*Return default textual response*/
 
-app.delete('/users:username', (req, res) => {
-  res.send('Deregister user');
-});
-
-  
 
   
 
