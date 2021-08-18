@@ -1,3 +1,5 @@
+const express = require('express'),
+morgan = require('morgan');
 const mongoose = require('mongoose');
 const Models = require('./models.js');
 
@@ -7,49 +9,13 @@ const Users = Models.User;
 
 /*Import express & morgan*/
 
-const express = require('express'),
-  morgan = require('morgan');
- 
+
 const app = express();
 
 app.use(morgan('common'));
 
 
-/*JSON object about Top 5 MOVIES*/
-/*
-  let top5movies = [
-    {
-      Movie: 'ESCAPE ROOM',
-      Director: 'Adam Robitel'
-    },
-    {
-      Movie: 'INCEPTION',
-      Director: 'Christopher Nolan'
-    },
-    {
-      Movie: 'PAID IN FULL',
-      Director: 'Charles Stone III'
-    },
-    {
-      Movie: 'LIFE',
-      Director: 'Ted Demme'
-    },
-    {
-      Movie: 'COMING TO AMERICA',
-      Director: 'John Landis'
-    },
-    ];
 
-    */
-   
-  
-    /* Return json object */
-
-    /*app.get('/movies', function (req, res) { 
-      res.json(top5movies);
-    });*/
-
-    
 
 
 
@@ -277,6 +243,9 @@ app.delete('/users/:username', (req, res) => {
 
 
   
+
+
+
 
 
 /*Express.static*/
