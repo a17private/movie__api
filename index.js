@@ -80,8 +80,8 @@ app.get('/movies', (req, res) => {
 
 // Get all movie Titles
 
-  app.get('/movies/:Title', (req, res) => {
-    Movies.findOne( {Title: req.params.Title })
+app.get('/movies/:Title', (req, res) => {
+   Movies.findOne( {Title: req.params.Title })
       .then((movies) => {
         res.status(201).json(movies);
       })
@@ -99,8 +99,8 @@ app.get('/movies', (req, res) => {
 
 // Get all movie Genre
 
-  app.get('/movies/:Genre', (req, res) => {
-    Movies.findOne( {Genre: req.params.Genre })
+app.get('/movies/:Genre', (req, res) => {
+   Movies.findOne( {Genre: req.params.Genre })
       .then((movies) => {
         res.status(201).json(movies);
       })
