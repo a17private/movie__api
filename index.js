@@ -1,5 +1,5 @@
 const express = require('express'),
-const morgan = require('morgan');
+morgan = require('morgan');
 const mongoose = require('mongoose');
 const Models = require('./models.js');
 
@@ -74,7 +74,7 @@ app.get('/movies/:Title', (req, res) => {
 
 // Get all movie Genre
 
-app.get('/movies/:Genre', (req, res) => {
+app.get('movies/Genre/:Name', (req, res) => {
    Movies.findOne( {Genre: req.params.Genre })
       .then((movies) => {
         res.status(201).json(movies);
