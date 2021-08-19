@@ -23,7 +23,7 @@ app.use(morgan('common'));
 
 // GET requests
 app.get('/', (req, res) => {
-  res.send('Welcome to my MOVIE API!');
+  res.send('Welcome to my Movie API!');
 });
 
 
@@ -74,8 +74,8 @@ app.get('/movies/:Title', (req, res) => {
 
 // Get all movie Genre
 
-app.get('movies/Genre/:Name', (req, res) => {
-   Movies.find( {Genre: req.params.Genre })
+app.get('/movies/Genre/:Name', (req, res) => {
+   Movies.findOne( {Genre: req.params.Genre })
       .then((movies) => {
         res.status(201).json(movies);
       })
