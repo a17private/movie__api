@@ -103,7 +103,7 @@ app.get('/movies/Genre/:Name', (req, res) => {
 
 // Get all movie Directors
 
-app.get('/movies/Director/', (req, res) => {
+app.get('/movies/Director/:Name', (req, res) => {
   Movies.findOne( {'Director.Name': req.params.Name })
     .then((movies) => {
       res.status(201).json(movies);
@@ -164,7 +164,7 @@ app.post('/users', (req, res) => {
 
 //Update users info
 
-app.put('/users/:username', (req, res) => {
+app.put('/users/username', (req, res) => {
   Users.findOneAndUpdate({ username: req.params.username }, { $set:
     {
       username: req.body.username,
