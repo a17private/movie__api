@@ -53,6 +53,7 @@ app.get('/movies', (req, res) => {
 
 
 
+
 // Get all movie Titles
 
 app.get('/movies/:Title', (req, res) => {
@@ -68,6 +69,10 @@ app.get('/movies/:Title', (req, res) => {
 
 
   
+
+
+
+
 
 
 
@@ -92,6 +97,10 @@ app.get('/movies/Genre/:Name', (req, res) => {
 
 
 
+
+
+
+
 // Get all movie Directors
 
 app.get('/movies/:Director', (req, res) => {
@@ -104,6 +113,10 @@ app.get('/movies/:Director', (req, res) => {
       res.status(500).send('Error: ' + err);
     });
 });
+
+
+
+
 
 
 
@@ -133,6 +146,11 @@ app.post('/users', (req, res) => {
     res.status(500).send('Error: ' + error);
   });
 });
+
+
+
+
+
 
 
 
@@ -176,6 +194,10 @@ app.put('/users/:username', (req, res) => {
 
 
 
+
+
+
+
 // Get user's favourite movies
 
 app.get('/users/:movieid', (req, res) => {
@@ -188,6 +210,10 @@ app.get('/users/:movieid', (req, res) => {
       res.status(500).send('Error: ' + err);
     });
 });
+
+
+
+
 
 
 
@@ -252,6 +278,10 @@ app.delete('/users/:username', (req, res) => {
 
 
   
+
+
+
+
 
 
 
