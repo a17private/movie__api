@@ -106,7 +106,7 @@ app.get('/movies/Genre/:Name', (req, res) => {
 app.get('/movies/Director/:Name', (req, res) => {
   Movies.findOne( {'Director.Name': req.params.Name })
     .then((movies) => {
-      res.status(201).json(movies);
+      res.status(201).json(movie.Director);
     })
     .catch((err) => {
       console.error(err);
