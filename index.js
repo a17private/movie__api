@@ -169,7 +169,7 @@ app.post('/users', (req, res) => {
 //Update users info
 
 app.put('/users/:Username', (req, res) => {
-  Users.findOneAndUpdate({ username: req.params.username }, { $set:
+  Users.findOneAndUpdate({ Username: req.params.Username }, { $set:
     {
       Username: req.body.Username,
       Password: req.body.Password,
