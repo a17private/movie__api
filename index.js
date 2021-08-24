@@ -1,4 +1,5 @@
 const express = require('express'),
+bodyParser = require('body-parser'),
 morgan = require('morgan');
 const mongoose = require('mongoose');
 const Models = require('./models.js');
@@ -11,7 +12,7 @@ const Users = Models.User;
 
 
 const app = express();
-
+app.use(bodyParser.json());
 mongoose.connect('mongodb://localhost:27017/test', { useNewUrlParser: true, useUnifiedTopology: true });
 
 app.use(morgan('common'));
@@ -170,9 +171,11 @@ app.post('/users', (req, res) => {
 app.put('/users/username', (req, res) => {
   Users.findOneAndUpdate({ username: req.params.username }, { $set:
     {
-      username: req.body.username,
-      movieid: req.body.movieid,
-      birthday: req.body.birthday
+      Username: req.body.Username,
+      Password: req.body.Password,
+      Email: req.body.Email,
+      Birthday: req.body.Birthday,
+      FavouriteMovies: req.body.FavouriteMovies
     }
   },
   { new: true }, // This line makes sure that the updated document is returned
