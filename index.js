@@ -168,7 +168,7 @@ app.post('/users', (req, res) => {
 
 //Update users info
 
-app.put('/users/:username', (req, res) => {
+app.put('/users/:Username', (req, res) => {
   Users.findOneAndUpdate({ Username: req.params.Username }, { $set:
     {
       Username: req.body.Username,
