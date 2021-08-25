@@ -233,7 +233,7 @@ app.post('/users/:Username/movies/:MovieID', (req, res) => {
 
 // Delete a movie from user's favourite
 
-app.delete('/users/:movieid', (req, res) => {
+app.delete('/users/:Username/movies/:MovieID', (req, res) => {
   Users.findOneAndRemove({ movieid: req.params.movieid })
     .then((movieid) => {
       if (!movieid) {
