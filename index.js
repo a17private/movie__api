@@ -168,13 +168,14 @@ app.post('/users', (req, res) => {
 
 //Update users info
 
-app.put('/users/:Username', (req, res) => {
+app.put('/users/:username', (req, res) => {
   Users.findOneAndUpdate({ Username: req.params.Username }, { $set:
     {
       Username: req.body.Username,
       Password: req.body.Password,
       Email: req.body.Email,
       Birthday: req.body.Birthday,
+      FavouriteMovies: req.body.FavouriteMovies
     },
   },
   { new: true }, // This line makes sure that the updated document is returned
@@ -206,7 +207,7 @@ app.put('/users/:Username', (req, res) => {
 // Get user's favourite movies
 
 app.get('/users/:movieid', (req, res) => {
-  Users.findOne( {movieid: req.params.movieid })
+  Users.findOne( {})
     .then((users) => {
       res.status(201).json(users);
     })
