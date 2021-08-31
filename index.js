@@ -14,6 +14,9 @@ const Users = Models.User;
 const app = express();
 app.use(bodyParser.json());
 mongoose.connect('mongodb://localhost:27017/test', { useNewUrlParser: true, useUnifiedTopology: true });
+let auth = require('./auth')(app);
+const passport = require('passport');
+require('./passport');
 
 app.use(morgan('common'));
 
@@ -305,6 +308,8 @@ let myLogger = (err, req, res, next) => {
 }
 
 app.use(myLogger);
+
+
 
 
 // listen for requests
