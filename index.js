@@ -3,6 +3,8 @@ bodyParser = require('body-parser'),
 morgan = require('morgan');
 const mongoose = require('mongoose');
 const Models = require('./models.js');
+const { check, validationResult } = require('express-validator');
+const bcrypt = require('bcrypt');
 
 const Movies = Models.Movie;
 const Users = Models.User;
@@ -14,6 +16,8 @@ const Users = Models.User;
 const app = express();
 app.use(bodyParser.json());
 mongoose.connect('mongodb://localhost:27017/test', { useNewUrlParser: true, useUnifiedTopology: true });
+const cors = require('cors');
+app.use(cors());
 let auth = require('./auth')(app);
 const passport = require('passport');
 require('./passport');
@@ -129,6 +133,7 @@ app.get('/movies/Director/:Name', passport.authenticate('jwt', { session: false 
 // Register User
 
 app.post('/users', (req, res) => {
+  let hashedPassword = Users.hashPassword(req.body.Password);
   Users.findOne({ Username: req.body.Username })
     .then((user) => {
       if (user) {
@@ -136,7 +141,7 @@ app.post('/users', (req, res) => {
       } else {
         Users.create({
             Username: req.body.Username,
-            Password: req.body.Password,
+            Password: hashedPassword,
             Email: req.body.Email,
             Birthday: req.body.Birthday,
             FavouriteMovies: req.body.FavouriteMovies
@@ -313,6 +318,8 @@ app.use(myLogger);
 
 
 // listen for requests
-app.listen(8080, () => {
-  console.log('Your app is listening on port 8080.');
+const port = process.env.PORT || 8080;
+app.listen(port, '0.0.0.0',() => {
+ console.log('Listening on Port ' + port);
 });
+
