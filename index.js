@@ -15,7 +15,7 @@ const Users = Models.User;
 
 const app = express();
 app.use(bodyParser.json());
-/*mongoose.connect('process.env.CONNECTION_URI', { useNewUrlParser: true, useUnifiedTopology: true });*/
+/*mongoose.connect('mongodb://localhost:27017/dbname', { useNewUrlParser: true, useUnifiedTopology: true });*/
 mongoose.connect('process.env.CONNECTION_URI', { useNewUrlParser: true, useUnifiedTopology: true });
 const cors = require('cors');
 app.use(cors());
