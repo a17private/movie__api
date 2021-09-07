@@ -15,7 +15,7 @@ const Users = Models.User;
 
 const app = express();
 app.use(bodyParser.json());
-/*mongoose.connect('mongodb+srv://a17private:1234@cluster0.tun2j.mongodb.net/test?retryWrites=true&w=majority', { useNewUrlParser: true, useUnifiedTopology: true });*/
+/*mongoose.connect('process.env.CONNECTION_URI', { useNewUrlParser: true, useUnifiedTopology: true });*/
 
 const cors = require('cors');
 app.use(cors());
