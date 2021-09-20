@@ -52,12 +52,7 @@ app.get('/movies', passport.authenticate('jwt', { session: false }), (req, res) 
     });
 });
 
-      
-
-
-
-  
-
+    
 
 
 
@@ -75,10 +70,6 @@ app.get('/movies/:Title', /*passport.authenticate('jwt', { session: false }),*/ 
         res.status(500).send('Error: ' + err);
       });
   });
-
-
-  
-
 
 
 
@@ -104,12 +95,6 @@ app.get('/movies/Genre/:Name', /*passport.authenticate('jwt', { session: false }
 
 
 
-
-
-
-
-
-
 // Get info about a movie director
 
 app.get('/movies/Director/:Name', /*passport.authenticate('jwt', { session: false }),*/ (req, res) => {
@@ -126,6 +111,19 @@ app.get('/movies/Director/:Name', /*passport.authenticate('jwt', { session: fals
 
 
 
+
+// Get app users
+
+app.get('/users', passport.authenticate('jwt', { session: false }), (req, res) => {
+  Users.find()
+  .then((users) => {
+    res.status(201).json(users);
+  })
+  .catch((err) => {
+    console.error(err);
+    res.status(500).send('Error: ' + err);
+  });
+});
 
 
 
