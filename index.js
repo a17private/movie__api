@@ -133,8 +133,8 @@ app.get('/users', passport.authenticate('jwt', { session: false }), (req, res) =
 
 app.post('/users',  [
   check('Username', 'Username is required').isLength({min: 5}),
-  check('Password', 'Password is required').not().isEmpty(),
   check('Username', 'Username contains non alphanumeric characters - not allowed.').isAlphanumeric(),
+  check('Password', 'Password is required').not().isEmpty(),
   check('Email', 'Email does not appear to be valid').isEmail()
 ], (req, res) => {
    // check the validation object for errors
@@ -154,7 +154,8 @@ app.post('/users',  [
             Username: req.body.Username,
             Password: hashedPassword,
             Email: req.body.Email,
-            Birthday: req.body.Birthday
+            Birthday: req.body.Birthday,
+            FavouriteMovies: req.body.FavouriteMovies
           })
           .then((user) =>{res.status(201).json(user) })
         .catch((error) => {
