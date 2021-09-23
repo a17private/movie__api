@@ -58,7 +58,7 @@ app.get('/movies', passport.authenticate('jwt', { session: false }), (req, res) 
 
 
 
-// Get all movie Titles
+// Get a movie Title
 
 app.get('/movies/:Title', passport.authenticate('jwt', { session: false }), (req, res) => {
    Movies.findOne( {Title: req.params.Title })
