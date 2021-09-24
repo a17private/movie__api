@@ -15,8 +15,8 @@ const Users = Models.User;
 
 const app = express();
 app.use(bodyParser.json());
-/*mongoose.connect('mongodb://localhost:27017/dbname', { useNewUrlParser: true, useUnifiedTopology: true });*/
-mongoose.connect(process.env.CONNECTION_URI, { useNewUrlParser: true, useUnifiedTopology: true });
+mongoose.connect('mongodb://localhost:27017/dbname', { useNewUrlParser: true, useUnifiedTopology: true });
+/*mongoose.connect(process.env.CONNECTION_URI, { useNewUrlParser: true, useUnifiedTopology: true });*/
 const cors = require('cors');
 app.use(cors());
 let auth = require('./auth')(app);
@@ -41,7 +41,7 @@ app.get('/', (req, res) => {
 
 // Get all movies
 
-app.get('/movies', passport.authenticate('jwt', { session: false }), (req, res) => {
+app.get('/movies', /*passport.authenticate('jwt', { session: false }),*/ (req, res) => {
   Movies.find()
     .then((movies) => {
       res.status(201).json(movies);
@@ -131,7 +131,7 @@ app.get('/users', passport.authenticate('jwt', { session: false }), (req, res) =
 // Get a user by username
 app.get(
   '/users/:Username',
-  passport.authenticate('jwt', { session: false }),
+ /* passport.authenticate('jwt', { session: false }),*/
   (req, res) => {
     Users.findOne({ Username: req.params.Username })
       .then((user) => {
