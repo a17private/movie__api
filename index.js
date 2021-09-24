@@ -41,7 +41,7 @@ app.get('/', (req, res) => {
 
 // Get all movies
 
-app.get('/movies', /*passport.authenticate('jwt', { session: false }),*/ (req, res) => {
+app.get('/movies', passport.authenticate('jwt', { session: false }), (req, res) => {
   Movies.find()
     .then((movies) => {
       res.status(201).json(movies);
@@ -131,7 +131,7 @@ app.get('/users', passport.authenticate('jwt', { session: false }), (req, res) =
 // Get a user by username
 app.get(
   '/users/:Username',
- /* passport.authenticate('jwt', { session: false }),*/
+  passport.authenticate('jwt', { session: false }),
   (req, res) => {
     Users.findOne({ Username: req.params.Username })
       .then((user) => {
@@ -255,7 +255,7 @@ passport.authenticate('jwt', { session: false }),
 
 
 // Add a movie to a user's list of favorites
-app.post('/users/:Username/movies/:MovieID', /*passport.authenticate('jwt', { session: false }),*/ (req, res) => {
+app.post('/users/:Username/movies/:MovieID', passport.authenticate('jwt', { session: false }), (req, res) => {
   Users.findOneAndUpdate({ Username: req.params.Username }, {
      $push: { FavoriteMovies: req.params.MovieID }
    },
