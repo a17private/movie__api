@@ -299,22 +299,20 @@ app.post('/users/:Username/movies/:MovieID', /*passport.authenticate('jwt', { se
 
 
 // Delete a movie from user's favourite
-
-app.delete('/users/:Username/movies/:MovieID', passport.authenticate('jwt', { session: false }), (req, res) => {
-  Users.findOneAndRemove({ Movieid: req.params.Movieid })
-    .then((Movieid) => {
-      if (!Movieid) {
-        res.status(400).send(req.params.Movieid + ' was not found');
-      } else {
-        res.status(200).send(req.params.Movieid + ' was deleted.');
-      }
-    })
-    .catch((err) => {
-      console.error(err);
-      res.status(500).send('Error: ' + err);
-    });
+app.delete('/users/:Username/:MovieID', passport.authenticate('jwt', {session: false}), (req, res) => {
+  Users.findOneAndUpdate(
+  {Username: req.params.Username},
+  {$pull: {FavouriteMovies: req.params.MovieID}},
+  {new: true}
+  ).populate('FavouriteMovies')
+  .then((user) => {
+    res.status(200).json(user.FavouriteMovies);
+  })
+  .catch((error) => {
+    console.error(error);
+    res.status(500).send('Error: ' + error);
+  })
 });
-
 
 
 
