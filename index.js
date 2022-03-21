@@ -305,8 +305,7 @@ app.delete('/users/:Username/:MovieID', passport.authenticate('jwt', {session: f
   {Username: req.params.Username},
   {$pull: {FavouriteMovies: req.params.MovieID}},
   {new: true}
-  ).populate('FavouriteMovies')
-  .then((user) => {
+  ).then((user) => {
     res.status(200).json(user.FavouriteMovies);
   })
   .catch((error) => {
